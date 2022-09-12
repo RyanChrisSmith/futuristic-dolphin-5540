@@ -5,5 +5,5 @@ class Ride < ApplicationRecord
 
   validates_presence_of :name
   validates_numericality_of :thrill_rating
-  validates_presence_of :open
+  validates_inclusion_of :open, in: [true, false]
 end
