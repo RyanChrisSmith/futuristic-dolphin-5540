@@ -21,3 +21,13 @@ Mechanic.destroy_all
 @ryan = Mechanic.create!(name: "Ryan", years_experience: 12)
 @katy = Mechanic.create!(name: "Katy", years_experience: 5)
 @kyle = Mechanic.create!(name: "Kyle", years_experience: 3)
+
+RideMechanic.create!(ride: @hurler, mechanic: @ryan)
+RideMechanic.create!(ride: @scrambler, mechanic: @ryan)
+RideMechanic.create!(ride: @ferris, mechanic: @ryan)
+RideMechanic.create!(ride: @jaws, mechanic: @ryan)
+RideMechanic.create!(ride: @hurler, mechanic: @katy)
+RideMechanic.create!(ride: @scrambler, mechanic: @katy)
+RideMechanic.create!(ride: @ferris, mechanic: @katy)
+RideMechanic.create!(ride: @ferris, mechanic: @kyle)
+RideMechanic.create!(ride: @scrambler, mechanic: @kyle)
