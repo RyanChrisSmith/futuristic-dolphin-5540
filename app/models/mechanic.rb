@@ -4,4 +4,8 @@ class Mechanic < ApplicationRecord
 
   validates_presence_of :name
   validates_numericality_of :years_experience
+
+  def self.avg_years
+    average(:years_experience)
+  end
 end

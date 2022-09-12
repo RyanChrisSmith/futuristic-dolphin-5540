@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Mechanics index page' do 
+RSpec.describe 'Mechanics index page' do
   describe 'story 1' do
     it 'displays All Mechanics at the top of the page' do
       ryan = Mechanic.create!(name: "Ryan", years_experience: 12)
@@ -37,15 +37,15 @@ RSpec.describe 'Mechanics index page' do
     end
 
     it 'displays the average years of experience of all mechanics' do
-      ryan = Mechanic.create!(name: "Ryan", years_experience: 12)
+      ryan = Mechanic.create!(name: "Ryan", years_experience: 10)
       katy = Mechanic.create!(name: "Katy", years_experience: 5)
       kyle = Mechanic.create!(name: "Kyle", years_experience: 3)
 
 
       visit "/mechanics"
 
-      expect()
+      expect(page).to have_content("Average years experience of all mechanics : 6")
     end
   end
-  
+
 end
