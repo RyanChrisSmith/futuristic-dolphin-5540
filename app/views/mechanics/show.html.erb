@@ -5,4 +5,11 @@
 <strong>Rides working on:</strong>
 <% @mechanic.rides.open_rides.each do |ride| %>
 <p> * <%= ride.name %></p>
-<% end %>
+<% end %><br>
+
+<strong>Add a ride to the workload:</strong>
+<br><%= form_with url: "/mechanics/#{@mechanic.id}", method: :patch, local: true do |form| %>
+  <%= form.label :ride_id, "Add Ride" %>
+  <%= form.text_field :ride_id %>
+  <%= form.submit 'Submit' %>
+<%end %><br>

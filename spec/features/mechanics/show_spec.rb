@@ -77,7 +77,28 @@ RSpec.describe 'Mechanics show page' do
       expect(jaws.name).to appear_before(scrambler.name)
       expect(scrambler.name).to_not appear_before(jaws.name)
     end
-
-
   end
+
+  describe 'story 3' do
+    it 'will add a ride to the existing page of the mechanics show page' do
+      kyle = Mechanic.create!(name: "Kyle", years_experience: 3)
+      six_flags = AmusementPark.create!(name: 'Six Flags', admission_cost: 75)
+      universal = AmusementPark.create!(name: 'Universal Studios', admission_cost: 80)
+      hurler = six_flags.rides.create!(name: 'The Hurler', thrill_rating: 7, open: true)
+      scrambler = six_flags.rides.create!(name: 'The Scrambler', thrill_rating: 4, open: true)
+      ferris = six_flags.rides.create!(name: 'Ferris Wheel', thrill_rating: 7, open: false)
+      jaws = universal.rides.create!(name: 'Jaws', thrill_rating: 5, open: true)
+      RideMechanic.create!(ride: ferris, mechanic: kyle)
+      RideMechanic.create!(ride: scrambler, mechanic: kyle)
+
+      visit "/mechanics/#{kyle.id}"
+
+      fill_in "Add Ride", with: "#{hurler.id}"
+      click_on "Submit"
+
+      expect(current_path).to eq("/mechanics/#{kyle.id}")
+      expect(page).to have_content("The Hurler")
+    end
+  end
+
 end
