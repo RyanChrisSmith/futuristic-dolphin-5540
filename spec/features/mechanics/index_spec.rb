@@ -30,6 +30,7 @@ RSpec.describe 'Mechanics index page' do
         expect(page).to_not have_content("Ryan")
         expect(page).to have_content("Years of Experience : 5")
       end
+
       within("#mechanic-#{kyle.id}") do
         expect(page).to have_content("Kyle")
         expect(page).to have_content("Years of Experience : 3")
