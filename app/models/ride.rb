@@ -6,4 +6,8 @@ class Ride < ApplicationRecord
   validates_presence_of :name
   validates_numericality_of :thrill_rating
   validates_inclusion_of :open, in: [true, false]
+
+  def self.open_rides
+    where("open = true")
+  end
 end
