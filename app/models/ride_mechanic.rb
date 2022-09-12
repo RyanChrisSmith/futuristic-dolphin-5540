@@ -1,0 +1,3 @@
+class RideMechanic < ApplicationRecord
+
+end

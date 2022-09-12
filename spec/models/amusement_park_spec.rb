@@ -4,4 +4,8 @@ RSpec.describe AmusementPark, type: :model do
   describe 'relationships' do
     it { should have_many(:rides) }
   end
+
+  describe 'validations' do
+
+  end
 end
