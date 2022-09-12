@@ -8,6 +8,6 @@ class Ride < ApplicationRecord
   validates_inclusion_of :open, in: [true, false]
 
   def self.open_rides
-    where("open = true")
+    where("open = true").order(thrill_rating: :desc)
   end
 end

@@ -22,7 +22,7 @@ RSpec.describe Ride, type: :model do
       ferris = six_flags.rides.create!(name: 'Ferris Wheel', thrill_rating: 7, open: false)
       jaws = universal.rides.create!(name: 'Jaws', thrill_rating: 5, open: true)
 
-      expect(Ride.open_rides).to eq([hurler,scrambler,jaws])
+      expect(Ride.open_rides).to eq([hurler,jaws,scrambler])
     end
   end
 end

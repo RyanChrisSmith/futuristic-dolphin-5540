@@ -73,10 +73,9 @@ RSpec.describe 'Mechanics show page' do
 
       visit "/mechanics/#{ryan.id}"
 
-      expect(ferris).to appear_before(hurler)
-      expect(hurler).to appear_before(jaws)
-      expect(jaws).to appear_before(scrambler)
-      expect(hurler).to_not appear_before(ferris)
+      expect(hurler.name).to appear_before(jaws.name)
+      expect(jaws.name).to appear_before(scrambler.name)
+      expect(scrambler.name).to_not appear_before(jaws.name)
     end
 
 
